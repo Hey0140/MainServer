@@ -9,10 +9,14 @@ __pycache__/
 *.pyc
 *.pyo
 *.pyd
+.env
 
 # IDE 설정파일 무시
 .vscode/
 .idea/
+
+#추가 자료 무시
+/uploads
 
 # Mac에서 생성되는 파일 무시
 .DS_Store
