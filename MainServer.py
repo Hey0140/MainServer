@@ -8,6 +8,8 @@ import httpx
 
 app = FastAPI()
 
+load_dotenv()
+
 MAIN_SERVER_IP_URL = os.getenv("MAIN_SERVER_IP_URL")
 
 # 저장 경로
