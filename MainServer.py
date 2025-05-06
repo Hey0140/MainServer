@@ -21,7 +21,7 @@ if MAIN_SERVER_IP_URL is None:
     raise ValueError("MAIN_SERVER_IP_URL 환경변수가 설정되지 않았습니다.")
 
 AI_SERVER_URL = "http://"+MAIN_SERVER_IP_URL+":8001/run_ai/"  # AI 서버의 run_ai API 주소
-# (포트 8001 예시, 실제 포트 확인!)
+# (포트 8001 예시, 실제 포트 확인!가능)
 
 @app.post("/upload_image/")
 async def upload_image(file: UploadFile = File(...)):
