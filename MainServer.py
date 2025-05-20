@@ -178,3 +178,4 @@ def upload_to_gcs(local_file_path: str, gcs_path: str) -> str:
     # URL 공개 설정 (필요 시)
     public_url = f"https://storage.googleapis.com/{GCS_BUCKET_NAME}/{gcs_path}"
     return public_url
+
