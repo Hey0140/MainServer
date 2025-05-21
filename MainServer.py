@@ -53,14 +53,15 @@ def verify_api_key(request: Request):
 @app.post("/upload_image/")
 async def upload_image(file: UploadFile = File(...),
                         gender : int = Form(...),
+                        sid: int = Form(...),
                        _: None = Depends(verify_api_key)):
     global image_path, shared_index, gender_value, session_id
 
-    session_id = uuid.uuid4().hex[:6]
+    session_id = str(sid)
     session_folder = os.path.join(UPLOAD_FOLDER, session_id)
     os.makedirs(session_folder, exist_ok=True)
 
-    filename = f"{uuid.uuid4().hex[:3]}_{file.filename}"
+    filename = f"{uuid.uuid4().hex[:4]}_picture.png"
     save_path = os.path.join(UPLOAD_FOLDER, filename)
     image_path = save_path
     gender_value = gender
