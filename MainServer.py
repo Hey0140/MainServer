@@ -26,6 +26,7 @@ AI_SERVER_IPS = {
     0: os.getenv("AI_SERVER_0"),
     1: os.getenv("AI_SERVER_1"),
     2: os.getenv("AI_SERVER_2"),
+    3: os.getenv("AI_SERVER_3"),
 }
 
 UPLOAD_FOLDER = "uploads/"
@@ -126,9 +127,9 @@ async def upload_result(file: UploadFile = File(...),
     # 서버 ID 추정 후 다음 작업 전달
     client_ip = request.client.host
     server_id = None
-    for sid, ip in AI_SERVER_IPS.items():
+    for serid, ip in AI_SERVER_IPS.items():
         if client_ip == ip:
-            server_id = sid
+            server_id = serid
             print(f"[🔄] Request came from AI server {server_id} ({client_ip})")
             break
     else:
